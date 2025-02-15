@@ -1,10 +1,27 @@
+#
+#                                                                              #
+#               ╔╗╔┌─┐┌┬┐┌─┐╔═╗┬  ┬┌─┐┬─┐┌─┐┬  ┌─┐┬ ┬                          #
+#               ║║║│ │ │ └─┐║ ║└┐┌┘├┤ ├┬┘├┤ │  │ ││││                          #
+#               ╝╚╝└─┘ ┴ └─┘╚═╝ └┘ └─┘┴└─└  ┴─┘└─┘└┴┘                          #
+#                                                                              #
+#               rust.yml created 2025/02/15                                    #
+#               by Richard JUAN (contact@richard-juan.com)                     #
+#                                                                              #
+#               Copyright © 2025 Richard JUAN. All rights reserved             #
+#                                                                              #
+#
+
+
 name: Rust
 
 on:
   push:
-    branches: [ "main" ]
+    branches: ["main"]
   pull_request:
-    branches: [ "main" ]
+    branches: ["main"]
+
+permissions:
+  contents: write
 
 jobs:
   build-windows-exe:
@@ -15,7 +32,7 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0  
+          fetch-depth: 0
           fetch-tags: true
 
       - name: Build Release Binary
@@ -26,7 +43,7 @@ jobs:
         with:
           tag_name: ${{ github.ref }}
           files: |
-            target/release/rotational.exe 
+            target/release/rotational.exe
           draft: false
           prerelease: false
         env:
