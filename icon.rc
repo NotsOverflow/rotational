@@ -1,0 +1,15 @@
+/*
+*                                                                              *
+*               ╔╗╔┌─┐┌┬┐┌─┐╔═╗┬  ┬┌─┐┬─┐┌─┐┬  ┌─┐┬ ┬                          *
+*               ║║║│ │ │ └─┐║ ║└┐┌┘├┤ ├┬┘├┤ │  │ ││││                          *
+*               ╝╚╝└─┘ ┴ └─┘╚═╝ └┘ └─┘┴└─└  ┴─┘└─┘└┴┘                          *
+*                                                                              *
+*               icon.rc created 2025/02/11                                     *
+*               by Richard JUAN (contact@richard-juan.com)                     *
+*                                                                              *
+*               Copyright © 2025 Richard JUAN. All rights reserved             *
+*                                                                              *
+*/
+
+
+icon ICON "icon/icon.ico"
