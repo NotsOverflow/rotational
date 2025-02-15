@@ -10,8 +10,6 @@
 #               Copyright © 2025 Richard JUAN. All rights reserved             #
 #                                                                              #
 #
-
-
 name: Rust
 
 on:
@@ -20,31 +18,11 @@ on:
   pull_request:
     branches: ["main"]
 
-permissions:
-  contents: write
-
 jobs:
-  build-windows-exe:
-    name: Build Windows Executable
+  build:
     runs-on: windows-latest
 
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-          fetch-tags: true
-
-      - name: Build Release Binary
-        run: cargo build --release
-
-      - name: Upload Release Asset
-        uses: softprops/action-gh-release@v2
-        with:
-          tag_name: ${{ github.ref }}
-          files: |
-            target/release/rotational.exe
-          draft: false
-          prerelease: false
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/checkout@v4
+      - name: Build
+        run: cargo build --verbose
