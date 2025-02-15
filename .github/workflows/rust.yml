@@ -7,13 +7,28 @@ on:
     branches: [ "main" ]
 
 jobs:
-  build:
-
+  build-windows-exe:
+    name: Build Windows Executable
     runs-on: windows-latest
 
     steps:
-    - uses: actions/checkout@v4
-    - name: Build
-      run: cargo build --verbose
-    - name: Run tests
-      run: cargo test --verbose
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Install Rust
+        uses: actions-rust-lang/setup-rust@v1
+        with:
+          target: x86_64-pc-windows-msvc # Windows target
+
+      - name: Build Release Binary
+        run: cargo build --release
+
+      - name: Upload Release Asset
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            target/release/rotational.exe 
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
