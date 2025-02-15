@@ -1,8 +1,8 @@
-![](icon/icon.ico)
+![](icon/rotational.png)
 
 # Rotational
 
-- a simple tray system tool to rotate your screen writen in Rust
+- a simple windows tray system tool to rotate your screen writen in Rust
 - you can use Alt + "arrow keys" to rotate
 - you can use the tray icon menu to show the virtual keyboard or rotate the screen
 
